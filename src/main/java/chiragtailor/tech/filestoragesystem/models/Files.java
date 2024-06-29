@@ -12,8 +12,7 @@ import java.util.Date;
 @Entity
 public class Files extends BaseModel{
 
-    @ManyToOne
-    private User userid;
+
     private String fileName;
     private String filePath;
     private Double fileSize;

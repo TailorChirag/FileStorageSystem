@@ -2,9 +2,11 @@ package chiragtailor.tech.filestoragesystem.services;
 
 import chiragtailor.tech.filestoragesystem.models.Files;
 import chiragtailor.tech.filestoragesystem.repository.FilesRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
+@Primary
 public class FIleService implements FService{
 
     private FilesRepository filesRepository;
