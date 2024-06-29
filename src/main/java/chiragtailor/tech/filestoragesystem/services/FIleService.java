@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Primary
 public class FIleService implements FService{
 
-    private FilesRepository filesRepository;
+    private final FilesRepository filesRepository;
 
     @Autowired
     public FIleService(FilesRepository filesRepository) {
