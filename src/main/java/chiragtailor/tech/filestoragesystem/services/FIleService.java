@@ -2,6 +2,7 @@ package chiragtailor.tech.filestoragesystem.services;
 
 import chiragtailor.tech.filestoragesystem.models.Files;
 import chiragtailor.tech.filestoragesystem.repository.FilesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ public class FIleService implements FService{
 
     private FilesRepository filesRepository;
 
+    @Autowired
     public FIleService(FilesRepository filesRepository) {
         this.filesRepository = filesRepository;
     }
