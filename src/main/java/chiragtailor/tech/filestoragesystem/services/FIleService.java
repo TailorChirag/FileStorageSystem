@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Primary
 public class FIleService implements FService{
@@ -23,7 +25,7 @@ public class FIleService implements FService{
     }
 
     @Override
-    public Files downloadFile(Long id) {
-        return filesRepository.findById(id).orElse(null);
+    public List<Files> downloadFile() {
+        return filesRepository.findAll();
     }
 }

@@ -3,11 +3,14 @@ package chiragtailor.tech.filestoragesystem.controller;
 import chiragtailor.tech.filestoragesystem.models.Files;
 import chiragtailor.tech.filestoragesystem.services.FService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/files")
+@RequestMapping("/storagesystem")
 public class filesController {
 
     private FService service;
@@ -17,13 +20,15 @@ public class filesController {
         this.service = service;
     }
 
-    @GetMapping("/download{id}")
-    public ResponseEntity<Files> downloadFile(@PathVariable("id") Long id){
-        Files files = service.downloadFile(id);
-        return ResponseEntity.ok(files);
+    @GetMapping("/download")
+    public ResponseEntity<List<Files>> downloadFile(){
+        ResponseEntity<List<Files>> response =
+                new ResponseEntity<>(service.downloadFile(), HttpStatus.OK);
+        return response;
     }
 
-    @PostMapping("/upload")
+
+    @PostMapping()
     public Files uploadFile(@RequestBody Files files){
        return service.uploadFile(files);
     }
